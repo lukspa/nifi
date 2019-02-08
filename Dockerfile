@@ -1,10 +1,9 @@
 FROM apache/nifi:latest
 LABEL maintainer="Łukasz Spandel"
 
-COPY our_processor.nar /opt/nifi/nifi-current/lib/
+COPY nifi-redis.nar /opt/nifi/nifi-current/lib/nifi-redis.nar
 
-mkdir -p ${NIFI_HOME}/current_flow
-
-RUN sed -i 's/flow.xml.gz/flowstate\/flow.xml.gz/g' /opt/nifi/nifi-current/conf/nifi.properties
+RUN mkdir -p ${NIFI_HOME}/current_flow &\
+sed -i 's/flow.xml.gz/flowstate\/flow.xml.gz/g' /opt/nifi/nifi-current/conf/nifi.properties
 
 EXPOSE 8080
