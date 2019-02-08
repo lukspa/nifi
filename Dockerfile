@@ -3,7 +3,7 @@ LABEL maintainer="Łukasz Spandel"
 
 COPY nifi-redis.nar /opt/nifi/nifi-current/lib/nifi-redis.nar
 
-RUN mkdir -p ${NIFI_HOME}/flowstate &\
-sed -i 's/flow.xml.gz/flowstate\/flow.xml.gz/g' /opt/nifi/nifi-current/conf/nifi.properties
+RUN mkdir -p ${NIFI_HOME}/flowstate 
+RUN sed -i 's/flow.xml.gz/flowstate\/flow.xml.gz/g' /opt/nifi/nifi-current/conf/nifi.properties
 
 EXPOSE 8080
